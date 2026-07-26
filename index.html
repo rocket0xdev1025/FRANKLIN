@@ -14,30 +14,36 @@
       theme: {
         extend: {
           colors: {
-            leaf: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
+            // Green field (background theme)
+            meadow: {
+              50: '#e8f8ee',
+              100: '#c6eed4',
+              200: '#8fdbab',
+              300: '#55c47e',
+              400: '#2fad5d',
+              500: '#1f8f4a',
+              600: '#16753c',
+              700: '#115c30',
+              800: '#0d4726',
+              900: '#09331b',
             },
-            cream: '#fff8e7',
-            paw: '#2d5a27',
+            // Logo image theme
+            fur: '#fff6ec',        // cream / white fur
+            tabby: '#3a2a1f',      // dark tabby brown
+            mocha: '#5c4033',      // mid brown
+            nose: '#f0a0b4',       // pink nose
+            nosedark: '#e07896',   // deeper pink
+            fleece: '#6b7280',     // blanket grey
+            cone: '#f5f0e8',       // soft cone cream
           },
           fontFamily: {
             display: ['Fredoka', 'system-ui', 'sans-serif'],
             body: ['Nunito', 'system-ui', 'sans-serif'],
           },
           boxShadow: {
-            cartoon: '6px 6px 0 0 #14532d',
-            'cartoon-sm': '4px 4px 0 0 #14532d',
-            'cartoon-lg': '10px 10px 0 0 #14532d',
-            pop: '0 12px 0 0 #15803d',
+            cartoon: '6px 6px 0 0 #3a2a1f',
+            'cartoon-sm': '4px 4px 0 0 #3a2a1f',
+            'cartoon-lg': '10px 10px 0 0 #3a2a1f',
           },
           animation: {
             float: 'float 3.5s ease-in-out infinite',
@@ -59,8 +65,8 @@
               '50%': { transform: 'translateY(-8px) scale(1.03)' },
             },
             sparkle: {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(0.9)' },
-              '50%': { opacity: '1', transform: 'scale(1.15)' },
+              '0%, 100%': { opacity: '0.55', transform: 'scale(0.92)' },
+              '50%': { opacity: '1', transform: 'scale(1.12)' },
             },
           },
         },
@@ -68,30 +74,25 @@
     };
   </script>
   <style>
-    :root {
-      --ca: "TBA";
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><text y='30' font-size='28'>🐱</text></svg>") 16 16, auto;
-      background-color: #ecfdf5;
+      background-color: #16753c;
       background-image:
-        radial-gradient(circle at 12% 18%, rgba(74, 222, 128, 0.35) 0, transparent 28%),
-        radial-gradient(circle at 88% 12%, rgba(34, 197, 94, 0.22) 0, transparent 26%),
-        radial-gradient(circle at 70% 78%, rgba(134, 239, 172, 0.4) 0, transparent 30%),
-        radial-gradient(circle at 20% 85%, rgba(22, 163, 74, 0.12) 0, transparent 24%),
+        radial-gradient(ellipse at 15% 10%, rgba(255, 246, 236, 0.14) 0, transparent 32%),
+        radial-gradient(ellipse at 85% 15%, rgba(240, 160, 180, 0.18) 0, transparent 28%),
+        radial-gradient(ellipse at 70% 85%, rgba(47, 173, 93, 0.45) 0, transparent 34%),
+        radial-gradient(ellipse at 20% 80%, rgba(9, 51, 27, 0.35) 0, transparent 30%),
         repeating-linear-gradient(
-          -12deg,
+          -14deg,
           transparent,
-          transparent 28px,
-          rgba(21, 128, 61, 0.035) 28px,
-          rgba(21, 128, 61, 0.035) 29px
+          transparent 26px,
+          rgba(255, 246, 236, 0.04) 26px,
+          rgba(255, 246, 236, 0.04) 27px
         );
       overflow-x: hidden;
+      color: #fff6ec;
     }
 
     a, button, .copy-btn, input {
@@ -103,8 +104,7 @@
       pointer-events: none;
       z-index: 9999;
       font-size: 1.55rem;
-      transition: transform 0.12s linear, opacity 0.25s ease;
-      filter: drop-shadow(0 2px 2px rgba(20, 83, 45, 0.35));
+      filter: drop-shadow(0 2px 2px rgba(58, 42, 31, 0.45));
       will-change: transform, opacity;
     }
 
@@ -113,46 +113,35 @@
     }
 
     .comic-border {
-      border: 4px solid #14532d;
+      border: 4px solid #3a2a1f;
     }
 
-    .speech-bubble {
-      position: relative;
-    }
-
+    .speech-bubble { position: relative; }
     .speech-bubble::after {
       content: '';
       position: absolute;
       left: 2.5rem;
       bottom: -18px;
-      width: 0;
-      height: 0;
       border-left: 16px solid transparent;
       border-right: 16px solid transparent;
-      border-top: 18px solid #14532d;
+      border-top: 18px solid #3a2a1f;
     }
-
     .speech-bubble::before {
       content: '';
       position: absolute;
       left: 2.7rem;
       bottom: -12px;
-      width: 0;
-      height: 0;
       z-index: 1;
       border-left: 14px solid transparent;
       border-right: 14px solid transparent;
-      border-top: 14px solid #fff8e7;
+      border-top: 14px solid #fff6ec;
     }
 
     .step-card:hover {
       transform: translateY(-6px) rotate(-1deg);
     }
 
-    .marquee {
-      animation: marquee 28s linear infinite;
-    }
-
+    .marquee { animation: marquee 28s linear infinite; }
     @keyframes marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -161,19 +150,17 @@
     .btn-pop {
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-
     .btn-pop:hover {
       transform: translate(-2px, -2px);
-      box-shadow: 8px 8px 0 0 #14532d;
+      box-shadow: 8px 8px 0 0 #3a2a1f;
     }
-
     .btn-pop:active {
       transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 0 #14532d;
+      box-shadow: 2px 2px 0 0 #3a2a1f;
     }
 
     .banner-frame {
-      box-shadow: 10px 10px 0 0 #14532d, inset 0 0 0 5px #bbf7d0;
+      box-shadow: 10px 10px 0 0 #3a2a1f, inset 0 0 0 5px #f0a0b4;
     }
 
     .dex-frame iframe {
@@ -183,56 +170,58 @@
       border-radius: 1.25rem;
     }
 
-    .cloud {
-      animation: float 5s ease-in-out infinite;
+    .title-pop {
+      color: #f0a0b4;
+      -webkit-text-stroke: 2.5px #3a2a1f;
+      paint-order: stroke fill;
+      text-shadow: 4px 4px 0 #3a2a1f;
     }
 
-    .cloud-delay {
-      animation-delay: 1.4s;
+    .card-fur {
+      background: #fff6ec;
+      color: #3a2a1f;
     }
 
-    .leaf-float {
-      animation: bounceSoft 3s ease-in-out infinite;
-    }
+    .cloud { animation: float 5s ease-in-out infinite; }
+    .cloud-delay { animation-delay: 1.4s; }
+    .leaf-float { animation: bounceSoft 3s ease-in-out infinite; }
   </style>
 </head>
-<body class="font-body text-leaf-900 antialiased">
-  <!-- Floating paw trail -->
+<body class="font-body text-fur antialiased">
   <div id="paw1" class="paw-trail" aria-hidden="true">🐾</div>
   <div id="paw2" class="paw-trail" aria-hidden="true">🐾</div>
   <div id="paw3" class="paw-trail" aria-hidden="true">🐾</div>
 
-  <!-- Decorative floating leaves -->
   <div class="pointer-events-none fixed inset-0 overflow-hidden z-0" aria-hidden="true">
-    <span class="absolute top-[12%] left-[6%] text-4xl opacity-40 leaf-float">🍃</span>
-    <span class="absolute top-[28%] right-[8%] text-3xl opacity-30 animate-float">🌿</span>
-    <span class="absolute bottom-[18%] left-[10%] text-5xl opacity-25 cloud">🍀</span>
-    <span class="absolute top-[55%] right-[14%] text-4xl opacity-35 cloud-delay animate-float">✨</span>
+    <span class="absolute top-[12%] left-[6%] text-4xl opacity-30 leaf-float">🍃</span>
+    <span class="absolute top-[28%] right-[8%] text-3xl opacity-25 animate-float">🌿</span>
+    <span class="absolute bottom-[18%] left-[10%] text-5xl opacity-20 cloud">🍀</span>
+    <span class="absolute top-[55%] right-[14%] text-4xl opacity-30 cloud-delay animate-float">✨</span>
   </div>
 
   <!-- Nav -->
   <header class="relative z-30">
     <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-5 sm:px-6">
-      <a href="#top" class="flex items-center gap-3 group">
-        <img src="logo.png" alt="ozzy's cat logo" class="h-14 w-14 rounded-full comic-border object-cover shadow-cartoon-sm group-hover:animate-wiggle bg-cream" />
+      <a href="#top" class="flex items-center gap-3 group rounded-2xl comic-border card-fur px-3 py-2 shadow-cartoon-sm">
+        <img src="logo.png" alt="ozzy's cat logo" class="h-14 w-14 rounded-full comic-border object-cover group-hover:animate-wiggle bg-white" />
         <div>
-          <p class="font-display text-xl font-bold leading-none text-leaf-800 sm:text-2xl">ozzy's cat</p>
-          <p class="text-xs font-extrabold tracking-widest text-leaf-600">$FRANKLIN</p>
+          <p class="font-display text-xl font-bold leading-none text-tabby sm:text-2xl">ozzy's cat</p>
+          <p class="text-xs font-extrabold tracking-widest text-nosedark">$FRANKLIN</p>
         </div>
       </a>
-      <div class="hidden items-center gap-6 md:flex">
-        <a href="#about" class="font-extrabold text-leaf-800 hover:text-leaf-600 transition">About</a>
-        <a href="#howtobuy" class="font-extrabold text-leaf-800 hover:text-leaf-600 transition">How to Buy</a>
-        <a href="#chart" class="font-extrabold text-leaf-800 hover:text-leaf-600 transition">Chart</a>
+      <div class="hidden items-center gap-6 rounded-2xl comic-border card-fur px-5 py-3 shadow-cartoon-sm md:flex">
+        <a href="#about" class="font-extrabold text-tabby hover:text-nosedark transition">About</a>
+        <a href="#howtobuy" class="font-extrabold text-tabby hover:text-nosedark transition">How to Buy</a>
+        <a href="#chart" class="font-extrabold text-tabby hover:text-nosedark transition">Chart</a>
       </div>
       <div class="flex items-center gap-2 sm:gap-3">
-        <a href="https://t.me/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-cream p-1.5 shadow-cartoon-sm hover:bg-leaf-100 transition" aria-label="Telegram">
+        <a href="https://t.me/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-fur p-1.5 shadow-cartoon-sm hover:bg-white transition" aria-label="Telegram">
           <img src="tg.png" alt="Telegram" class="h-8 w-8 rounded-full object-cover" />
         </a>
-        <a href="https://x.com/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-cream p-1.5 shadow-cartoon-sm hover:bg-leaf-100 transition" aria-label="X / Twitter">
+        <a href="https://x.com/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-fur p-1.5 shadow-cartoon-sm hover:bg-white transition" aria-label="X / Twitter">
           <img src="x.png" alt="X / Twitter" class="h-8 w-8 rounded-full object-cover" />
         </a>
-        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="btn-pop hidden sm:inline-flex items-center gap-2 rounded-2xl comic-border bg-leaf-500 px-4 py-2 font-display font-bold text-white shadow-cartoon-sm">
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop hidden sm:inline-flex items-center gap-2 rounded-2xl comic-border bg-nose px-4 py-2 font-display font-bold text-tabby shadow-cartoon-sm">
           Buy Now
         </a>
       </div>
@@ -243,33 +232,32 @@
     <!-- Hero -->
     <section class="mx-auto max-w-6xl px-4 pb-10 pt-4 sm:px-6 sm:pb-16">
       <div class="grid items-center gap-10 lg:grid-cols-2">
-        <div class="order-2 lg:order-1">
-          <div class="mb-4 inline-flex items-center gap-2 rounded-full comic-border bg-cream px-4 py-1.5 shadow-cartoon-sm animate-bounce-soft">
+        <div class="order-2 lg:order-1 rounded-[2rem] comic-border card-fur p-6 shadow-cartoon sm:p-8">
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full comic-border bg-white px-4 py-1.5 shadow-cartoon-sm animate-bounce-soft">
             <span class="text-lg">🏡</span>
-            <span class="text-sm font-extrabold text-leaf-700">Looking for a forever home</span>
+            <span class="text-sm font-extrabold text-tabby">Looking for a forever home</span>
           </div>
-          <h1 class="font-display text-5xl font-bold leading-[0.95] text-leaf-900 sm:text-6xl lg:text-7xl">
+          <h1 class="font-display text-5xl font-bold leading-[0.95] text-tabby sm:text-6xl lg:text-7xl">
             ozzy's cat
-            <span class="mt-2 block text-leaf-500 drop-shadow-[3px_3px_0_#14532d]">$FRANKLIN</span>
+            <span class="title-pop mt-2 block">$FRANKLIN</span>
           </h1>
-          <p class="mt-6 max-w-xl text-lg font-bold leading-relaxed text-leaf-800 sm:text-xl">
+          <p class="mt-6 max-w-xl text-lg font-bold leading-relaxed text-mocha sm:text-xl">
             Franklin still needs a forever home. He's doing well, loves food and affection, and gets along with dogs too.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-leaf-500 px-6 py-3.5 font-display text-lg font-bold text-white shadow-cartoon">
+            <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-nose px-6 py-3.5 font-display text-lg font-bold text-tabby shadow-cartoon">
               🛒 Buy Now
             </a>
-            <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-cream px-6 py-3.5 font-display text-lg font-bold text-leaf-800 shadow-cartoon">
+            <a href="https://dexscreener.com/robinhood/0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-tabby px-6 py-3.5 font-display text-lg font-bold text-fur shadow-cartoon">
               📈 Chart
             </a>
           </div>
 
-          <!-- CA copy -->
-          <div class="mt-8 max-w-xl rounded-3xl comic-border bg-white/90 p-4 shadow-cartoon-sm backdrop-blur">
-            <p class="mb-2 text-xs font-extrabold uppercase tracking-widest text-leaf-600">Contract Address</p>
+          <div class="mt-8 max-w-xl rounded-3xl comic-border bg-white p-4 shadow-cartoon-sm">
+            <p class="mb-2 text-xs font-extrabold uppercase tracking-widest text-mocha">Contract Address</p>
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <code id="ca-text" class="flex-1 truncate rounded-xl bg-leaf-50 px-3 py-2.5 font-mono text-sm font-bold text-leaf-800 comic-border">TBA</code>
-              <button type="button" id="copy-ca" class="copy-btn btn-pop inline-flex items-center justify-center gap-2 rounded-xl comic-border bg-leaf-600 px-4 py-2.5 font-display font-bold text-white shadow-cartoon-sm whitespace-nowrap">
+              <code id="ca-text" class="flex-1 truncate rounded-xl bg-cone px-3 py-2.5 font-mono text-sm font-bold text-tabby comic-border">0x19039584669882f2333924dbe66cc91d81870208</code>
+              <button type="button" id="copy-ca" class="copy-btn btn-pop inline-flex items-center justify-center gap-2 rounded-xl comic-border bg-nose px-4 py-2.5 font-display font-bold text-tabby shadow-cartoon-sm whitespace-nowrap">
                 <span data-copy-label>Copy CA</span>
                 <span aria-hidden="true">📋</span>
               </button>
@@ -278,15 +266,15 @@
         </div>
 
         <div class="order-1 lg:order-2 relative">
-          <div class="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-leaf-300/60 blur-2xl"></div>
-          <div class="absolute -bottom-6 -right-4 h-32 w-32 rounded-full bg-leaf-400/40 blur-2xl"></div>
+          <div class="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-nose/40 blur-2xl"></div>
+          <div class="absolute -bottom-6 -right-4 h-32 w-32 rounded-full bg-fur/30 blur-2xl"></div>
           <div class="relative mx-auto max-w-md">
-            <div class="blob absolute inset-3 bg-leaf-400/50 animate-float"></div>
-            <img src="logo.png" alt="Franklin the cat" class="relative z-10 w-full rounded-[2.5rem] comic-border object-cover shadow-cartoon-lg bg-cream animate-float" />
-            <div class="absolute -right-3 top-8 z-20 rounded-2xl comic-border bg-cream px-3 py-2 shadow-cartoon-sm speech-bubble animate-bounce-soft">
-              <p class="font-display text-sm font-bold text-leaf-800">meow = buy 💚</p>
+            <div class="blob absolute inset-3 bg-meadow-300/50 animate-float"></div>
+            <img src="logo.png" alt="Franklin the cat" class="relative z-10 w-full rounded-[2.5rem] comic-border object-cover shadow-cartoon-lg bg-fur animate-float" />
+            <div class="absolute -right-3 top-8 z-20 rounded-2xl comic-border bg-fur px-3 py-2 shadow-cartoon-sm speech-bubble animate-bounce-soft">
+              <p class="font-display text-sm font-bold text-tabby">meow = buy 💗</p>
             </div>
-            <div class="absolute -left-2 bottom-10 z-20 rounded-full comic-border bg-leaf-500 px-3 py-1.5 font-display text-sm font-bold text-white shadow-cartoon-sm animate-sparkle">
+            <div class="absolute -left-2 bottom-10 z-20 rounded-full comic-border bg-nose px-3 py-1.5 font-display text-sm font-bold text-tabby shadow-cartoon-sm animate-sparkle">
               $FRANKLIN
             </div>
           </div>
@@ -295,18 +283,18 @@
     </section>
 
     <!-- Marquee -->
-    <div class="relative z-10 overflow-hidden border-y-4 border-leaf-900 bg-leaf-500 py-3 text-white">
+    <div class="relative z-10 overflow-hidden border-y-4 border-tabby bg-nose py-3 text-tabby">
       <div class="marquee flex w-max gap-10 whitespace-nowrap font-display text-lg font-bold tracking-wide">
-        <span>🐱 ozzy's cat</span><span>💚 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
-        <span>🐱 ozzy's cat</span><span>💚 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
-        <span>🐱 ozzy's cat</span><span>💚 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
-        <span>🐱 ozzy's cat</span><span>💚 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
+        <span>🐱 ozzy's cat</span><span>💗 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
+        <span>🐱 ozzy's cat</span><span>💗 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
+        <span>🐱 ozzy's cat</span><span>💗 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
+        <span>🐱 ozzy's cat</span><span>💗 $FRANKLIN</span><span>🏡 Forever Home</span><span>⚡ Robinhood ETH</span><span>🐾 Loves Food</span><span>🐶 Dog Friendly</span>
       </div>
     </div>
 
     <!-- Banner -->
     <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <div class="overflow-hidden rounded-[2rem] comic-border banner-frame bg-leaf-200">
+      <div class="overflow-hidden rounded-[2rem] comic-border banner-frame bg-meadow-700">
         <img src="banner.png" alt="ozzy's cat FRANKLIN banner" class="w-full object-cover" />
       </div>
     </section>
@@ -314,51 +302,52 @@
     <!-- About -->
     <section id="about" class="mx-auto max-w-6xl px-4 pb-6 sm:px-6">
       <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <div class="rounded-[2rem] comic-border bg-cream p-8 shadow-cartoon sm:p-10">
-          <p class="mb-3 font-display text-sm font-bold uppercase tracking-widest text-leaf-600">The Story</p>
-          <h2 class="font-display text-4xl font-bold text-leaf-900 sm:text-5xl">Meet Franklin 🐱</h2>
-          <p class="mt-5 text-lg font-bold leading-relaxed text-leaf-800">
+        <div class="rounded-[2rem] comic-border card-fur p-8 shadow-cartoon sm:p-10">
+          <p class="mb-3 font-display text-sm font-bold uppercase tracking-widest text-nosedark">The Story</p>
+          <h2 class="font-display text-4xl font-bold text-tabby sm:text-5xl">Meet Franklin 🐱</h2>
+          <p class="mt-5 text-lg font-bold leading-relaxed text-mocha">
             Franklin still needs a forever home. He's doing well, loves food and affection, and gets along with dogs too.
           </p>
-          <p class="mt-4 text-base font-semibold leading-relaxed text-leaf-700">
+          <p class="mt-4 text-base font-bold leading-relaxed text-mocha/90">
             $FRANKLIN is the on-chain love letter to a soft-hearted tabby who just wants snacks, pets, and a couch to claim.
-            Built on <span class="font-extrabold text-leaf-600">Robinhood ETH</span> — green vibes only.
+            Built on <span class="font-extrabold text-tabby">Robinhood ETH</span> — meadow green vibes only.
           </p>
           <ul class="mt-6 grid gap-3 sm:grid-cols-2">
-            <li class="flex items-center gap-3 rounded-2xl comic-border bg-leaf-100 px-4 py-3 font-bold text-leaf-800">🍽️ Food lover</li>
-            <li class="flex items-center gap-3 rounded-2xl comic-border bg-leaf-100 px-4 py-3 font-bold text-leaf-800">💕 Needs affection</li>
-            <li class="flex items-center gap-3 rounded-2xl comic-border bg-leaf-100 px-4 py-3 font-bold text-leaf-800">🐶 Dog friendly</li>
-            <li class="flex items-center gap-3 rounded-2xl comic-border bg-leaf-100 px-4 py-3 font-bold text-leaf-800">🏡 Forever home vibes</li>
+            <li class="flex items-center gap-3 rounded-2xl comic-border bg-white px-4 py-3 font-bold text-tabby">🍽️ Food lover</li>
+            <li class="flex items-center gap-3 rounded-2xl comic-border bg-white px-4 py-3 font-bold text-tabby">💕 Needs affection</li>
+            <li class="flex items-center gap-3 rounded-2xl comic-border bg-white px-4 py-3 font-bold text-tabby">🐶 Dog friendly</li>
+            <li class="flex items-center gap-3 rounded-2xl comic-border bg-white px-4 py-3 font-bold text-tabby">🏡 Forever home vibes</li>
           </ul>
         </div>
-        <div class="rounded-[2rem] comic-border bg-leaf-600 p-8 text-white shadow-cartoon sm:p-10 flex flex-col justify-between">
+
+        <div class="rounded-[2rem] comic-border bg-tabby p-8 text-fur shadow-cartoon sm:p-10 flex flex-col justify-between">
           <div>
-            <h3 class="font-display text-3xl font-bold">Token Vibes</h3>
-            <p class="mt-3 font-semibold text-leaf-100">The cutest green meme on Robinhood ETH.</p>
+            <h3 class="font-display text-3xl font-bold text-fur">Token Vibes</h3>
+            <p class="mt-3 font-bold text-nose">The cutest meadow meme on Robinhood ETH.</p>
           </div>
           <dl class="mt-8 space-y-4">
-            <div class="flex items-center justify-between rounded-2xl border-4 border-leaf-400/50 bg-leaf-700/40 px-4 py-3">
-              <dt class="font-bold text-leaf-100">Name</dt>
-              <dd class="font-display text-lg font-bold">ozzy's cat</dd>
+            <div class="flex items-center justify-between rounded-2xl border-4 border-nose/40 bg-black/20 px-4 py-3">
+              <dt class="font-bold text-fur/80">Name</dt>
+              <dd class="font-display text-lg font-bold text-fur">ozzy's cat</dd>
             </div>
-            <div class="flex items-center justify-between rounded-2xl border-4 border-leaf-400/50 bg-leaf-700/40 px-4 py-3">
-              <dt class="font-bold text-leaf-100">Symbol</dt>
-              <dd class="font-display text-lg font-bold">$FRANKLIN</dd>
+            <div class="flex items-center justify-between rounded-2xl border-4 border-nose/40 bg-black/20 px-4 py-3">
+              <dt class="font-bold text-fur/80">Symbol</dt>
+              <dd class="font-display text-lg font-bold text-nose">$FRANKLIN</dd>
             </div>
-            <div class="flex items-center justify-between rounded-2xl border-4 border-leaf-400/50 bg-leaf-700/40 px-4 py-3">
-              <dt class="font-bold text-leaf-100">Chain</dt>
-              <dd class="font-display text-lg font-bold">Robinhood ETH</dd>
+            <div class="flex items-center justify-between rounded-2xl border-4 border-nose/40 bg-black/20 px-4 py-3">
+              <dt class="font-bold text-fur/80">Chain</dt>
+              <dd class="font-display text-lg font-bold text-fur">Robinhood ETH</dd>
             </div>
-            <div class="flex items-center justify-between gap-3 rounded-2xl border-4 border-leaf-400/50 bg-leaf-700/40 px-4 py-3">
-              <dt class="font-bold text-leaf-100 shrink-0">CA</dt>
-              <dd class="font-mono text-sm font-bold truncate">TBA</dd>
+            <div class="flex items-center justify-between gap-3 rounded-2xl border-4 border-nose/40 bg-black/20 px-4 py-3">
+              <dt class="font-bold text-fur/80 shrink-0">CA</dt>
+              <dd class="font-mono text-sm font-bold truncate text-fur">0x19039584669882f2333924dbe66cc91d81870208</dd>
             </div>
           </dl>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex flex-1 items-center justify-center gap-2 rounded-2xl comic-border bg-cream px-4 py-3 font-display font-bold text-leaf-800 shadow-cartoon-sm min-w-[140px]">
+            <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex flex-1 items-center justify-center gap-2 rounded-2xl comic-border bg-nose px-4 py-3 font-display font-bold text-tabby shadow-cartoon-sm min-w-[140px]">
               Buy Now
             </a>
-            <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex flex-1 items-center justify-center gap-2 rounded-2xl comic-border bg-leaf-400 px-4 py-3 font-display font-bold text-leaf-900 shadow-cartoon-sm min-w-[140px]">
+            <a href="https://dexscreener.com/robinhood/0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex flex-1 items-center justify-center gap-2 rounded-2xl comic-border bg-fur px-4 py-3 font-display font-bold text-tabby shadow-cartoon-sm min-w-[140px]">
               Chart
             </a>
           </div>
@@ -368,100 +357,97 @@
 
     <!-- How to Buy -->
     <section id="howtobuy" class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <div class="mb-10 text-center">
-        <p class="font-display text-sm font-bold uppercase tracking-widest text-leaf-600">Super Simple</p>
-        <h2 class="mt-2 font-display text-4xl font-bold text-leaf-900 sm:text-5xl">How to Buy $FRANKLIN</h2>
-        <p class="mx-auto mt-3 max-w-2xl text-lg font-bold text-leaf-700">
+      <div class="mb-10 rounded-[2rem] comic-border card-fur px-6 py-8 text-center shadow-cartoon-sm sm:px-10">
+        <p class="font-display text-sm font-bold uppercase tracking-widest text-nosedark">Super Simple</p>
+        <h2 class="mt-2 font-display text-4xl font-bold text-tabby sm:text-5xl">How to Buy $FRANKLIN</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-lg font-bold text-mocha">
           Grab Franklin on Robinhood ETH in four easy paw-steps.
         </p>
       </div>
 
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <article class="step-card rounded-[1.75rem] comic-border bg-white p-6 shadow-cartoon transition duration-200">
-          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-leaf-400 font-display text-2xl font-bold text-leaf-900 shadow-cartoon-sm">1</div>
-          <h3 class="font-display text-xl font-bold text-leaf-900">Get a Wallet</h3>
-          <p class="mt-2 text-sm font-semibold leading-relaxed text-leaf-700">
+        <article class="step-card rounded-[1.75rem] comic-border card-fur p-6 shadow-cartoon transition duration-200">
+          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-nose font-display text-2xl font-bold text-tabby shadow-cartoon-sm">1</div>
+          <h3 class="font-display text-xl font-bold text-tabby">Get a Wallet</h3>
+          <p class="mt-2 text-sm font-bold leading-relaxed text-mocha">
             Install MetaMask or another EVM wallet. Create (or import) your wallet and keep your seed phrase safe.
           </p>
         </article>
-
-        <article class="step-card rounded-[1.75rem] comic-border bg-white p-6 shadow-cartoon transition duration-200">
-          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-leaf-400 font-display text-2xl font-bold text-leaf-900 shadow-cartoon-sm">2</div>
-          <h3 class="font-display text-xl font-bold text-leaf-900">Add Robinhood ETH</h3>
-          <p class="mt-2 text-sm font-semibold leading-relaxed text-leaf-700">
-            Switch your wallet network to <span class="font-extrabold text-leaf-600">Robinhood ETH</span> so you're ready for Franklin's chain.
+        <article class="step-card rounded-[1.75rem] comic-border card-fur p-6 shadow-cartoon transition duration-200">
+          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-nose font-display text-2xl font-bold text-tabby shadow-cartoon-sm">2</div>
+          <h3 class="font-display text-xl font-bold text-tabby">Add Robinhood ETH</h3>
+          <p class="mt-2 text-sm font-bold leading-relaxed text-mocha">
+            Switch your wallet network to <span class="font-extrabold text-tabby">Robinhood ETH</span> so you're ready for Franklin's chain.
           </p>
         </article>
-
-        <article class="step-card rounded-[1.75rem] comic-border bg-white p-6 shadow-cartoon transition duration-200">
-          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-leaf-400 font-display text-2xl font-bold text-leaf-900 shadow-cartoon-sm">3</div>
-          <h3 class="font-display text-xl font-bold text-leaf-900">Fund with ETH</h3>
-          <p class="mt-2 text-sm font-semibold leading-relaxed text-leaf-700">
+        <article class="step-card rounded-[1.75rem] comic-border card-fur p-6 shadow-cartoon transition duration-200">
+          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-nose font-display text-2xl font-bold text-tabby shadow-cartoon-sm">3</div>
+          <h3 class="font-display text-xl font-bold text-tabby">Fund with ETH</h3>
+          <p class="mt-2 text-sm font-bold leading-relaxed text-mocha">
             Bridge or transfer ETH onto Robinhood ETH. You'll need a little ETH for gas and for the swap.
           </p>
         </article>
-
-        <article class="step-card rounded-[1.75rem] comic-border bg-white p-6 shadow-cartoon transition duration-200">
-          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-leaf-400 font-display text-2xl font-bold text-leaf-900 shadow-cartoon-sm">4</div>
-          <h3 class="font-display text-xl font-bold text-leaf-900">Swap for $FRANKLIN</h3>
-          <p class="mt-2 text-sm font-semibold leading-relaxed text-leaf-700">
-            Open Uniswap, connect your wallet, paste the CA, and swap ETH for <span class="font-extrabold text-leaf-600">$FRANKLIN</span>. Welcome home!
+        <article class="step-card rounded-[1.75rem] comic-border card-fur p-6 shadow-cartoon transition duration-200">
+          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl comic-border bg-nose font-display text-2xl font-bold text-tabby shadow-cartoon-sm">4</div>
+          <h3 class="font-display text-xl font-bold text-tabby">Swap for $FRANKLIN</h3>
+          <p class="mt-2 text-sm font-bold leading-relaxed text-mocha">
+            Open Uniswap, connect your wallet, paste the CA, and swap ETH for <span class="font-extrabold text-nosedark">$FRANKLIN</span>. Welcome home!
           </p>
         </article>
       </div>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-leaf-500 px-8 py-4 font-display text-xl font-bold text-white shadow-cartoon">
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-nose px-8 py-4 font-display text-xl font-bold text-tabby shadow-cartoon">
           🛒 Buy $FRANKLIN Now
         </a>
-        <button type="button" id="copy-ca-2" class="copy-btn btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-cream px-6 py-4 font-display text-lg font-bold text-leaf-800 shadow-cartoon">
+        <button type="button" id="copy-ca-2" class="copy-btn btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-fur px-6 py-4 font-display text-lg font-bold text-tabby shadow-cartoon">
           <span data-copy-label>📋 Copy CA</span>
         </button>
       </div>
     </section>
 
-    <!-- Chart / Dexscreener -->
+    <!-- Chart -->
     <section id="chart" class="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
-      <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+      <div class="mb-8 flex flex-col items-start justify-between gap-4 rounded-[2rem] comic-border card-fur px-6 py-6 shadow-cartoon-sm sm:flex-row sm:items-end sm:px-8">
         <div>
-          <p class="font-display text-sm font-bold uppercase tracking-widest text-leaf-600">Live Chart</p>
-          <h2 class="mt-2 font-display text-4xl font-bold text-leaf-900 sm:text-5xl">Dexscreener</h2>
-          <p class="mt-2 font-bold text-leaf-700">Watch $FRANKLIN make paw-prints on the chart.</p>
+          <p class="font-display text-sm font-bold uppercase tracking-widest text-nosedark">Live Chart</p>
+          <h2 class="mt-2 font-display text-4xl font-bold text-tabby sm:text-5xl">Dexscreener</h2>
+          <p class="mt-2 font-bold text-mocha">Watch $FRANKLIN make paw-prints on the chart.</p>
         </div>
-        <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-leaf-500 px-5 py-3 font-display font-bold text-white shadow-cartoon-sm">
+        <a href="https://dexscreener.com/robinhood/0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-nose px-5 py-3 font-display font-bold text-tabby shadow-cartoon-sm">
           Open Full Chart ↗
         </a>
       </div>
-      <div class="dex-frame overflow-hidden rounded-[2rem] comic-border bg-white shadow-cartoon-lg" style="height: min(640px, 70vh);">
+      <div class="dex-frame overflow-hidden rounded-[2rem] comic-border bg-fur shadow-cartoon-lg" style="height: min(640px, 70vh);">
         <iframe
           title="Dexscreener chart for $FRANKLIN"
-          src="https://dexscreener.com/robinhood/TBA?embed=1&theme=light&trades=0&info=0"
+          src="https://dexscreener.com/robinhood/0x19039584669882f2333924dbe66cc91d81870208?embed=1&theme=light&trades=0&info=0"
           allow="clipboard-write"
           loading="lazy"
         ></iframe>
       </div>
     </section>
 
-    <!-- CTA band -->
-    <section class="relative overflow-hidden border-y-4 border-leaf-900 bg-leaf-500 py-16">
-      <div class="pointer-events-none absolute inset-0 opacity-20" aria-hidden="true">
+    <!-- CTA -->
+    <section class="relative overflow-hidden border-y-4 border-tabby bg-tabby py-16">
+      <div class="pointer-events-none absolute inset-0 opacity-15" aria-hidden="true">
         <div class="absolute left-[10%] top-4 text-7xl">🐾</div>
         <div class="absolute right-[12%] bottom-2 text-7xl">🐾</div>
         <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl opacity-40">🐱</div>
       </div>
       <div class="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6">
-        <h2 class="font-display text-4xl font-bold text-white sm:text-5xl">Give Franklin a forever home</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg font-bold text-leaf-50">
+        <h2 class="font-display text-4xl font-bold text-fur sm:text-5xl">Give Franklin a forever home</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg font-bold text-nose">
           He's doing well, loves food and affection, and gets along with dogs too. Your bag is his couch.
         </p>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-cream px-7 py-3.5 font-display text-lg font-bold text-leaf-800 shadow-cartoon">
+          <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-nose px-7 py-3.5 font-display text-lg font-bold text-tabby shadow-cartoon">
             Buy Now
           </a>
-          <a href="https://t.me/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-leaf-700 px-5 py-3.5 font-display text-lg font-bold text-white shadow-cartoon">
+          <a href="https://t.me/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-fur px-5 py-3.5 font-display text-lg font-bold text-tabby shadow-cartoon">
             <img src="tg.png" alt="" class="h-7 w-7 rounded-full object-cover" /> Telegram
           </a>
-          <a href="https://x.com/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-leaf-700 px-5 py-3.5 font-display text-lg font-bold text-white shadow-cartoon">
+          <a href="https://x.com/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="btn-pop inline-flex items-center gap-2 rounded-2xl comic-border bg-fur px-5 py-3.5 font-display text-lg font-bold text-tabby shadow-cartoon">
             <img src="x.png" alt="" class="h-7 w-7 rounded-full object-cover" /> Twitter
           </a>
         </div>
@@ -469,76 +455,67 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="relative z-10 bg-leaf-900 py-10 text-leaf-100">
+  <footer class="relative z-10 bg-meadow-900 py-10 text-fur">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6">
       <div class="flex items-center gap-3">
-        <img src="logo.png" alt="" class="h-12 w-12 rounded-full comic-border object-cover bg-cream" />
+        <img src="logo.png" alt="" class="h-12 w-12 rounded-full comic-border object-cover bg-fur" />
         <div>
-          <p class="font-display text-lg font-bold text-white">ozzy's cat · $FRANKLIN</p>
-          <p class="text-xs font-semibold text-leaf-300">Not financial advice. DYOR. Franklin just wants pets.</p>
+          <p class="font-display text-lg font-bold text-fur">ozzy's cat · $FRANKLIN</p>
+          <p class="text-xs font-semibold text-nose">Not financial advice. DYOR. Franklin just wants pets.</p>
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <a href="https://t.me/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-cream p-1.5 hover:bg-leaf-100 transition" aria-label="Telegram">
+        <a href="https://t.me/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-fur p-1.5 hover:bg-white transition" aria-label="Telegram">
           <img src="tg.png" alt="Telegram" class="h-9 w-9 rounded-full object-cover" />
         </a>
-        <a href="https://x.com/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-cream p-1.5 hover:bg-leaf-100 transition" aria-label="X / Twitter">
+        <a href="https://x.com/ozzycatFRANKLIN" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-fur p-1.5 hover:bg-white transition" aria-label="X / Twitter">
           <img src="x.png" alt="X / Twitter" class="h-9 w-9 rounded-full object-cover" />
         </a>
-        <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-leaf-500 px-4 py-2 font-display text-sm font-bold text-white hover:bg-leaf-400 transition">
+        <a href="https://dexscreener.com/robinhood/0x19039584669882f2333924dbe66cc91d81870208" target="_blank" rel="noopener noreferrer" class="rounded-full comic-border bg-nose px-4 py-2 font-display text-sm font-bold text-tabby hover:bg-nosedark transition">
           Chart
         </a>
       </div>
     </div>
-    <p class="mt-8 text-center text-xs font-semibold text-leaf-400">© 2026 ozzy's cat · $FRANKLIN · Robinhood ETH</p>
+    <p class="mt-8 text-center text-xs font-semibold text-fur/70">© 2026 ozzy's cat · $FRANKLIN · Robinhood ETH</p>
   </footer>
 
   <script>
     (function () {
-      const CA = 'TBA';
+      const CA = '0x19039584669882f2333924dbe66cc91d81870208';
 
       async function copyCA(button) {
         const labelEl = button.querySelector('[data-copy-label]') || button;
         const original = labelEl.textContent;
 
-        async function write() {
-          try {
-            await navigator.clipboard.writeText(CA);
-          } catch (err) {
-            const ta = document.createElement('textarea');
-            ta.value = CA;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-          }
+        try {
+          await navigator.clipboard.writeText(CA);
+        } catch (err) {
+          const ta = document.createElement('textarea');
+          ta.value = CA;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
         }
 
-        await write();
         labelEl.textContent = 'Copied!';
-        setTimeout(() => {
-          labelEl.textContent = original;
-        }, 1600);
+        setTimeout(() => { labelEl.textContent = original; }, 1600);
       }
 
       document.querySelectorAll('.copy-btn').forEach((btn) => {
         btn.addEventListener('click', () => copyCA(btn));
       });
 
-      // 3 footprint emojis follow the mouse
       const paws = [
         document.getElementById('paw1'),
         document.getElementById('paw2'),
         document.getElementById('paw3'),
       ];
-
       const positions = [
         { x: -100, y: -100 },
         { x: -100, y: -100 },
         { x: -100, y: -100 },
       ];
-
       let mouseX = -100;
       let mouseY = -100;
       const lags = [0.18, 0.1, 0.06];
@@ -557,30 +534,23 @@
       function animatePaws() {
         let targetX = mouseX;
         let targetY = mouseY;
-
         for (let i = 0; i < paws.length; i++) {
           const lag = lags[i];
           const off = offsets[i];
           positions[i].x += (targetX + off.x - positions[i].x) * lag;
           positions[i].y += (targetY + off.y - positions[i].y) * lag;
-
-          const paw = paws[i];
           const scale = 1 - i * 0.12;
           const opacity = 0.95 - i * 0.22;
           const rotate = (i % 2 === 0 ? -18 : 18) + (flip ? 8 : -8);
-
-          paw.style.transform =
+          paws[i].style.transform =
             'translate(' + positions[i].x + 'px, ' + positions[i].y + 'px) scale(' + scale + ') rotate(' + rotate + 'deg)';
-          paw.style.opacity = String(opacity);
-
+          paws[i].style.opacity = String(opacity);
           targetX = positions[i].x;
           targetY = positions[i].y;
         }
-
         flip = !flip;
         requestAnimationFrame(animatePaws);
       }
-
       requestAnimationFrame(animatePaws);
     })();
   </script>
